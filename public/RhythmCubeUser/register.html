@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="container-fluid login-wrap-bg">
+    <div class="login-title" i18n>
+        <p>EXD 账号注册</p>
+    </div>
+    <!--账号，密码，确认密码，邮箱-->
+    <form class="form-group register-check" i18n>
+        <div class="col-xs-12 form-group-lg margin-top">
+            <input type="text" name="username" id="username" class="form-control" placeholder="账号">
+        </div>
+        <div class="col-xs-12 input-margin form-group-lg">
+            <input type="password" name="password" id="password" class="form-control" placeholder="密码">
+        </div>
+        <div class="col-xs-12 form-group-lg">
+            <input type="password" name="checkPassword" id="确认密码" class="form-control"
+                   placeholder="确认密码">
+        </div>
+        <div class="col-xs-12 input-margin form-group-lg">
+            <input type="text" name="email" id="email" class="form-control" placeholder="电子邮箱">
+        </div>
+    </form>
+    <div class="login-btn input-margin" i18n>
+        <div class="col-xs-12 btn-group-lg">
+            <button class="btn btn-primary btn-block reg">注册</button>
+        </div>
+
+        <div class="col-xs-12 btn-group-lg input-margin">
+            <a href="?registerCancel=1" class="btn btn-danger">取消</a>
+        </div>
+    </div>
+</div>
+
+<div class="dialog-warp" i18n>
+    <div class="dialog-in">
+        <p class="dialog-message"></p>
+        <button class="btn btn-info dialog-close">关闭</button>
+    </div>
+</div>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+
+<script src="language/en.js"></script>
+<script src="language/jp.js"></script>
+<script src="language/ch.js"></script>
+<script src="js/language.js"></script>
+<script>
+    LanguageTab.reload();
+</script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/validate/jquery.validate.min.js"></script>
+<script src="js/dialog.js"></script>
+<script src="js/ajax-register.js"></script>
+
+
+
+
+</body>
+</html>
