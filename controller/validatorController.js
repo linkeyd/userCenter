@@ -17,8 +17,9 @@ class ValidatorController{
      *账号是否登陆存在或者过期
      */
     isLogin(req,res,next){
-            if(!req.session.username){
-                console.log(req.session.username);
+
+            if(!req.session.sessionUsername){
+                console.log(req.session.sessionUsername);
                 res.redirect('/');
             }
             else{

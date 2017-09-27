@@ -37,8 +37,9 @@ class UserController {
                 else if (password != loginResult[0].password) {
                     resStatusCode(res, 1002);
                 }
+                //登陆成功
                 else {
-                    req.session.username = loginResult[0].userId;
+                    req.session.sessionUsername = loginResult[0].userId;
                     resStatusCode(res, 200, loginResult[0]);
                 }
             }
@@ -132,7 +133,7 @@ class UserController {
         co(function*() {
             try {
 
-                var userSelect = yield user.userModel.qGet(req.session.username);
+                var userSelect = yield user.userModel.qGet(req.session.sessionUsername);
                 if (userSelect) {
                     resStatusCode(res,200,userSelect);
                 }
@@ -148,10 +149,10 @@ class UserController {
     /**
      * 修改用户信息
      */
-    UserInfoChange(req,res,next){
+    userInfoChange(req,res,next){
         co(function*(){
             try{
-                var username = req.session.username;
+                var username = req.session.sessionUsername;
                 var phoneNumber = req.body.phoneNumber;
                 var birthDay = req.body.birthDay;
                 var sex = req.body.sex;
@@ -179,7 +180,7 @@ class UserController {
     userUpdatePass(req,res,next){
         co(function*() {
             try {
-                var username = req.session.username;
+                var username = req.session.sessionUsername;
                 var password = crypto.createHash('md5').update(req.body.psw).digest('base64');
                 var newPass = crypto.createHash('md5').update(req.body.password).digest('base64');
                 var resultPsw = yield user.userModel.qAll({
@@ -209,7 +210,7 @@ class UserController {
         co(function*(){
             try{
                 var _db = yield db;
-                var username = req.session.username;
+                var username = req.session.sessionUsername;
 
                 var exp = (yield _db.qExecQuery("select experience from rhythm_user where userId=?",[username]))[0];
                 if(exp.length>0){

@@ -18,7 +18,7 @@ router.get('/check/getCheckCode',validatorController.isCode);
 router.post('/user/postLogin', userController.userLogin);
 router.post('/user/postRegister',userController.userRegister);
 router.post('/user/postUpdatePass',userController.userUpdatePass);
-router.post('/user/postUserInfoChange',userController.UserInfoChange);
+router.post('/user/postUserInfoChange',userController.userInfoChange);
 router.get('/user/getLoginOut',userController.userLoginOut);
 router.get('/user/getUserInfo',userController.userGetInfo);
 router.get('/rhythm/Experience',userController.rhythmExperience);

@@ -19,15 +19,14 @@ app.set('views', path.join(__dirname, 'views'));
 app.engine(".html",require("ejs").__express);
 app.set('view engine', 'html');
 
-//var sessionStore = new session.MemoryStore({reapInterval:15*6000});
-//session config
+// var sessionStore = new session.MemoryStore({reapInterval:15*6000});
+// session config
 app.use(session({
   //store:sessionStore,
-    secret: '12345',
-    name: 'rhythm',
-    cookie: {maxAge: 60000 * 60},
-    resave: false,
-    saveUninitialized: true,
+    secret: 'rhythmCubeName',
+    cookie: {maxAge: 60000 * 60,domain:"usercenter.exdstudio.net"},
+    resave: true,
+    saveUninitialized: true
 }));
 
 // 过滤器判断登陆ID是否过期
